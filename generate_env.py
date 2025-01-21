@@ -1,6 +1,6 @@
 import os
 
-# Especificar las variables de entorno que necesitas
+# Variables que necesitamos cargar
 variables = [
     "DJANGO_SECRET_KEY",
     "DJANGO_SUPERUSER_EMAIL",
@@ -12,7 +12,12 @@ variables = [
 # Generar contenido del archivo .env
 env_content = []
 for var in variables:
+    # Intentar cargar la variable desde el entorno
     value = os.getenv(var, None)
+    if not value:
+        # Intentar cargarla como Shared Variable en Railway
+        value = os.getenv(f"shared.{var}", None)
+
     if value:
         env_content.append(f"{var}={value}")
     else:
