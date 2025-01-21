@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Ruta base donde se encuentran las imágenes
-        base_path = "comunidades_autonomas/management/sample_data/comunidades/"
+        base_path = "comunidades_autonomas/management/commands/sample_data/comunidades/"
         
         # Datos de las comunidades autónomas con imágenes
         comunidades = [
