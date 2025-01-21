@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'comunidades_autonomas',
     'core',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -131,4 +132,7 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',  # Permitir acceso público a todos los endpoints (cambiar en producción)
     ],
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ]
 }
