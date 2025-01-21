@@ -31,12 +31,15 @@ env = environ.Env(
 )
 environ.Env.read_env(env_file='.env')
 
-DEBUG = env('DEBUG')
+DEBUG = env('DEBUG', default=False)
 
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='django-insecure-desarrollo')
 
-if not os.getenv('DJANGO_SECRET_KEY') and not DEBUG:
-    raise ImproperlyConfigured("La clave secreta no está configurada para producción. Por favor, añade DJANGO_SECRET_KEY en las variables de entorno.")
+if SECRET_KEY == 'django-insecure-desarrollo' and not DEBUG:
+    raise ImproperlyConfigured(
+        "La clave secreta no está configurada correctamente para producción. "
+        "Añade DJANGO_SECRET_KEY a las variables de entorno."
+    )
 
 
 ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost']
