@@ -56,8 +56,9 @@ if SECRET_KEY == 'django-insecure-desarrollo' and not DEBUG:
 ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost', URL_SERVER]
 
 CSRF_TRUSTED_ORIGINS = [
-    '*'
+    'https://web-production-957d3.up.railway.app',
 ]
+
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
