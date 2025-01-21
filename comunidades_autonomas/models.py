@@ -1,5 +1,5 @@
 from django.db import models
-
+from multimedia_manager.models import MediaFile 
 # Create your models here.
 class ComunidadAutonoma(models.Model):
     nombre = models.CharField(
@@ -14,11 +14,18 @@ class ComunidadAutonoma(models.Model):
         verbose_name="Código",
         help_text="Código de la Comunidad Autónoma"
     )
-    
+    imagen = models.ForeignKey(
+        MediaFile,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name="Imagen",
+        help_text="Imagen de la Comunidad Autónoma"
+    )
     class Meta:
         verbose_name_plural = "Comunidades Autónomas"
         verbose_name = "Comunidad Autónoma"
         ordering = ['nombre']
-        
+
     def __str__(self):
         return self.nombre
