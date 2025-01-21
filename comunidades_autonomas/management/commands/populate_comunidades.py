@@ -33,6 +33,7 @@ class Command(BaseCommand):
         ]
             # eliminar los modelos de comunidad
         ComunidadAutonoma.objects.all().delete()
+        MediaFile.objects.all().delete()
 
         for comunidad in comunidades:
             # Ruta completa del archivo de imagen
