@@ -13,14 +13,14 @@ class Command(BaseCommand):
         
         # Datos de las comunidades autónomas con imágenes
         comunidades = [
-            {"nombre": "Andalucía", "codigo": "AN", "imagen": "andalucia.jpg", "descipcion": "Andalucía es una comunidad autónoma española reconocida como nacionalidad histórica por su Estatuto de Autonomía, cuyo territorio se encuentra en el sur de la península ibérica."},
-            {"nombre": "Aragón", "codigo": "AR", "imagen": "aragon.jpg", "descipcion": "Aragón es una comunidad autónoma uniprovincial de España, situada en el noreste del país."},
-            {"nombre": "Asturias", "codigo": "AS", "imagen": "asturias.jpg", "descipcion": "Asturias es una comunidad autónoma uniprovincial de España, situada en el norte de la península ibérica."},
-            {"nombre": "Cantabria", "codigo": "CB", "imagen": "cantabria.jpg", "descipcion": "Cantabria es una comunidad autónoma uniprovincial de España, situada en el norte de la península ibérica."},
-            {"nombre": "Castilla y León", "codigo": "CL", "imagen": "castillayleon.jpg", "descipcion": "Castilla y León es una comunidad autónoma española, situada en el noroeste de la península ibérica."},
-            {"nombre": "Castilla-La Mancha", "codigo": "CM", "imagen": "castillalamancha.jpg", "descipcion": "Castilla-La Mancha es una comunidad autónoma española situada en el centro de la península ibérica."},
-            {"nombre": "Cataluña", "codigo": "CT", "imagen": "cataluna.jpg", "descipcion": "Cataluña es una comunidad autónoma española, considerada nacionalidad histórica, situada al noreste de la península ibérica."},
-            {"nombre": "Extremadura", "codigo": "EX", "imagen": "extremadura.jpg", "descipcion": "Extremadura es una comunidad autónoma española situada en el suroeste de la península ibérica."},
+            {"nombre": "Andalucía", "codigo": "AN", "imagen": "andalucia.jpg", "descripcion": "Andalucía es una comunidad autónoma española reconocida como nacionalidad histórica por su Estatuto de Autonomía, cuyo territorio se encuentra en el sur de la península ibérica."},
+            {"nombre": "Aragón", "codigo": "AR", "imagen": "aragon.jpg", "descripcion": "Aragón es una comunidad autónoma uniprovincial de España, situada en el noreste del país."},
+            {"nombre": "Asturias", "codigo": "AS", "imagen": "asturias.jpg", "descripcion": "Asturias es una comunidad autónoma uniprovincial de España, situada en el norte de la península ibérica."},
+            {"nombre": "Cantabria", "codigo": "CB", "imagen": "cantabria.jpg", "descripcion": "Cantabria es una comunidad autónoma uniprovincial de España, situada en el norte de la península ibérica."},
+            {"nombre": "Castilla y León", "codigo": "CL", "imagen": "castillayleon.jpg", "descripcion": "Castilla y León es una comunidad autónoma española, situada en el noroeste de la península ibérica."},
+            {"nombre": "Castilla-La Mancha", "codigo": "CM", "imagen": "castillalamancha.jpg", "descripcion": "Castilla-La Mancha es una comunidad autónoma española situada en el centro de la península ibérica."},
+            {"nombre": "Cataluña", "codigo": "CT", "imagen": "cataluna.jpg", "descripcion": "Cataluña es una comunidad autónoma española, considerada nacionalidad histórica, situada al noreste de la península ibérica."},
+            {"nombre": "Extremadura", "codigo": "EX", "imagen": "extremadura.jpg", "descripcion": "Extremadura es una comunidad autónoma española situada en el suroeste de la península ibérica."},
             {"nombre": "Galicia", "codigo": "GA", "imagen": "galicia.jpg", "descripcion": "Galicia es una comunidad autónoma española situada en el noroeste de la península ibérica."},
             {"nombre": "Madrid", "codigo": "MD", "imagen": "madrid.jpg", "descripcion": "Madrid es una comunidad autónoma española situada en el centro de la península ibérica."},
             {"nombre": "Murcia", "codigo": "MC", "imagen": "murcia.jpg", "descripcion": "Murcia es una comunidad autónoma española situada en el sureste de la península ibérica."},
