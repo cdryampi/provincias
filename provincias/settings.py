@@ -53,10 +53,13 @@ if SECRET_KEY == 'django-insecure-desarrollo' and not DEBUG:
     )
 
 
-ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost', URL_SERVER]
 
-
-
+CSRF_TRUSTED_ORIGINS = [
+    URL_SERVER,  # Tu dominio en Railway
+]
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 
