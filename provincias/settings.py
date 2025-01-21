@@ -31,7 +31,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv()
 
 # Configuración de DEBUG
-DEBUG = os.getenv('DEBUG', 'True').lower() in ['true', '1', 'yes']
+DEBUG = os.getenv('DEBUG', 'True')
 
 # Configuración de SECRET_KEY
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-desarrollo')
@@ -56,7 +56,7 @@ if SECRET_KEY == 'django-insecure-desarrollo' and not DEBUG:
 ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost', URL_SERVER]
 
 CSRF_TRUSTED_ORIGINS = [
-    URL_SERVER,  # Tu dominio en Railway
+    '*'
 ]
 CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True

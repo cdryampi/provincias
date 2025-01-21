@@ -31,7 +31,9 @@ class Command(BaseCommand):
             {"nombre": "Ceuta", "codigo": "CE", "imagen": "ceuta.jpg"},
             {"nombre": "Melilla", "codigo": "ML", "imagen": "melilla.jpg"},
         ]
-
+            # eliminar los modelos de comunidad
+        ComunidadAutonoma.objects.all().delete()
+        
         for comunidad in comunidades:
             # Ruta completa del archivo de imagen
             image_path = os.path.join(base_path, comunidad["imagen"])
