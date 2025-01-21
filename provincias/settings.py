@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import environ
 from django.core.exceptions import ImproperlyConfigured
+from dotenv import load_dotenv
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,25 +27,35 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 # SECURITY WARNING: keep the secret key used in production secret!
-env = environ.Env(
-    DEBUG=(bool, True)
-)
-environ.Env.read_env(env_file='.env')
+# Cargar las variables desde el archivo .env
+load_dotenv()
 
-DEBUG = env('DEBUG', default=True)
+# Configuración de DEBUG
+DEBUG = os.getenv('DEBUG', 'True').lower() in ['true', '1', 'yes']
 
-SECRET_KEY = env('DJANGO_SECRET_KEY', default='django-insecure-desarrollo')
+# Configuración de SECRET_KEY
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-desarrollo')
+
+# Configuración de URL del servidor
+URL_SERVER = os.getenv('URL_SERVER', 'http://localhost:8000')
+
+# Validación de SECRET_KEY en producción
+if not SECRET_KEY:
+    raise ImproperlyConfigured(
+        "La clave secreta no está configurada correctamente. "
+        "Asegúrate de que DJANGO_SECRET_KEY esté configurada en las variables de entorno o en el archivo .env."
+    )
 
 if SECRET_KEY == 'django-insecure-desarrollo' and not DEBUG:
     raise ImproperlyConfigured(
-        "La clave secreta no está configurada correctamente para producción. "
-        "Añade DJANGO_SECRET_KEY a las variables de entorno."
+        "Estás usando una clave insegura en producción. "
+        "Cambia DJANGO_SECRET_KEY a una clave secreta segura."
     )
 
 
 ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost']
 
-URL_SERVER = 'http://127.0.0.1:8000'
+
 
 
 # Application definition

@@ -1,7 +1,5 @@
 #!/bin/bash
 echo "==== Iniciando pipeline ===="
-echo "==== Instalando las variables de entorno ===="
-python generate_env.py
 
 echo "==== Ejecutando migraciones ===="
 python manage.py migrate --noinput
