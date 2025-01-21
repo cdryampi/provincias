@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
+import environ
+from django.core.exceptions import ImproperlyConfigured
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -19,13 +22,25 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-&u1u6fu)=m#vttx_n7mt62)jor3a#yr$qdj$ydkx)t6=&5c5fh'
-
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+
+# SECURITY WARNING: keep the secret key used in production secret!
+env = environ.Env(
+    DEBUG=(bool, False)
+)
+environ.Env.read_env(env_file='.env')
+
+DEBUG = env('DEBUG')
+
+SECRET_KEY = env('DJANGO_SECRET_KEY', default='django-insecure-desarrollo')
+
+if not os.getenv('DJANGO_SECRET_KEY') and not DEBUG:
+    raise ImproperlyConfigured("La clave secreta no está configurada para producción. Por favor, añade DJANGO_SECRET_KEY en las variables de entorno.")
+
+
+ALLOWED_HOSTS = ['.railway.app', '127.0.0.1', 'localhost']
+
 URL_SERVER = 'http://127.0.0.1:8000'
 
 
@@ -44,6 +59,8 @@ INSTALLED_APPS = [
     'multimedia_manager',
     'drf_yasg',
 ]
+# añadir la app de cors a las aplicaciones instaladas
+INSTALLED_APPS += ['corsheaders']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -54,6 +71,9 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+# añaadir el middleware de cors a la lista de middlewares
+MIDDLEWARE = ['corsheaders.middleware.CorsMiddleware'] + MIDDLEWARE
 
 ROOT_URLCONF = 'provincias.urls'
 
@@ -139,3 +159,6 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
     ]
 }
+
+# cors
+CORS_ALLOW_ALL_ORIGINS = True

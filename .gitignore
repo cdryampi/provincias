@@ -1,0 +1,49 @@
+# Sistema operativo
+*.DS_Store
+Thumbs.db
+
+# Entorno virtual
+.venv/
+env/
+venv/
+
+# Archivos compilados de Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Configuración de IDEs
+.idea/
+.vscode/
+*.swp
+
+# Archivos de logs
+*.log
+
+# Archivos estáticos generados
+staticfiles/
+static/
+
+# Archivos de medios
+media/
+
+# Archivos de base de datos
+db.sqlite3
+
+# Archivos de migración (opcional, pero puede ser útil)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Llaves y configuraciones sensibles
+.env
+*.key
+
+# Archivos de despliegue específicos
+*.pid
+*.sock
+
+# Node.js
+node_modules/
+
+# Railway o servicios similares
+.cache/
