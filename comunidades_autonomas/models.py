@@ -8,6 +8,12 @@ class ComunidadAutonoma(models.Model):
         verbose_name="Nombre",
         help_text="Nombre de la Comunidad Autónoma"
     )
+    descripcion = models.TextField(
+        null=True,
+        blank=True,
+        verbose_name="Descripción",
+        help_text="Descripción de la Comunidad Autónoma"
+    )
     codigo = models.CharField(
         max_length=2,
         unique=True,

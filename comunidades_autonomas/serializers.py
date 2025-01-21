@@ -9,4 +9,4 @@ class ComunidadAutonomaSerializer(serializers.ModelSerializer):
     imagen = MediaFileSerializer()
     class Meta:
         model = ComunidadAutonoma
-        fields = ['id', 'nombre', 'codigo', 'imagen']
+        fields = ['id', 'nombre', 'descripcion', 'codigo', 'imagen']
