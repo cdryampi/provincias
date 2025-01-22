@@ -12,7 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 import os
-import environ
 from django.core.exceptions import ImproperlyConfigured
 from dotenv import load_dotenv
 
@@ -65,6 +64,7 @@ SESSION_COOKIE_SECURE = True
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,6 +76,7 @@ INSTALLED_APPS = [
     'core',
     'multimedia_manager',
     'drf_yasg',
+
 ]
 # añadir la app de cors a las aplicaciones instaladas
 INSTALLED_APPS += ['corsheaders']
@@ -181,3 +182,17 @@ REST_FRAMEWORK = {
 
 # cors
 CORS_ALLOW_ALL_ORIGINS = True
+
+# Configuración de Jazzmin
+
+JAZZMIN_SETTINGS = {
+    "site_title": "Provincias de España",
+    "site_header": "Provincias de España",
+    "site_brand": "Provincias de España",
+    "use_google_fonts_cdn": True,
+}
+
+JAZZMIN_UI_TWEAKS = {
+    "theme": "flatly",
+    "dark_mode_theme": "darkly",
+}
